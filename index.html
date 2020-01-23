@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src = "script.js"></script>
+    <link rel = "stylesheet" href = "stylesheet.css">
+</head>
+<body onload="listCreatures()">
+
+<h1>Welcome to Hagrid's hut!</h1>
+
+
+<h2>Surreptitiously obtain new creatures!!</h2>
+
+<select class="selector" id="creatureSelector">
+    <option value="0">Chose a creature type</option>
+    <option value="1">Hippogriff</option>
+    <option value="2">Thestral</option>
+    <option value="3">Unicorn</option>
+    <option value="4">Dragon</option>
+    <option value="5">Flobberworm</option>
+    <option value="6">Centaur</option>
+    <option value="7">Acromantula</option>
+</select>
+
+<input placeholder="Creature name" type="text" id="nameInput">
+
+<button id="createButton" onclick="createCreature()"> Obtain new creatures </button>
+
+<div id="creatureNameList "></div>
+<div id="creatureSpeciesList "></div>
+<div id="creatureIdList "></div>
+
+
+<h2>Feed the animals</h2>
+
+<h3>Available food:</h3>
+<select class="selector" id="foodSelector" onchange="">
+    <option value="0">ferret</option>
+    <option value="1">raw meat</option>
+    <option value="2">leaves</option>
+    <option value="3">bloody Susan</option>
+    <option value="4">lettuce</option>
+    <option value="5">vegetables</option>
+    <option value="6">human</option>
+</select>
+
+<button id="feedButton" onclick="feed()">Feed the creatures</button>
+
+
+<h2>Rename creatures</h2>
+
+<input placeholder="ID" type="text" id="oldName">
+
+<input placeholder="New name" type="text" id="newName">
+
+<button id="renameButton" onclick="renameCreature()">Rename the creature</button>
+
+
+<h2>Release creatures</h2>
+
+<input placeholder="Creature's ID" type="text" id="releaseInput">
+
+<button id="releaseButton" onclick="releaseCreature()">Release the creatures</button>
+
+
+</body>
+</html>
