@@ -1,52 +1,87 @@
 var creaturePopulation = 0;
-var animalId = 7;
+//var animalId = 0;
 var allCreatures = [];
 
 $(document).ready(function(){
 });
 
-function createCreature(){
+function run(){
+    var buckbeak = new Hippogriff("Buckbeak");
+    //animalId++;
+    var hunter = new Thestral("Hunter");
+    //animalId++;
+    var billy = new Unicorn("Billy");
+    //animalId++;
+    var norbert= new Dragon("Norbert");
+    //animalId++;
+    var theodore = new Flobberworm("Theodore");
+    //animalId++;
+    var ronan = new Centaur("Ronan");
+    //animalId++;
+    var aragog = new Acromantula("Aragog");
+    //animalId++;
+    listCreatures();
+}
+
+function duplicateTester() {
     var name = $("#nameInput").val();
     var species = Number($("#creatureSelector").val());
+    var nameArr = new Array("", "");
+    if (name == "") {
+        alert("Oops, you should pick a name for your new creature!");
+    } else {
+        for (var i = 0; i < allCreatures.length; i++) {
+            nameArr += allCreatures[i].name;
+        }
+        if (nameArr.includes(name)) {
+            alert("A creature already has that name, why don't you pick another name for your new creature");
+        } else {
+            createCreature(name, species);
+        }
+    }
+}
+
+function createCreature(name, species){
     var creature;
     var type = "";
     switch(species){
         case 0:
-            console.log("Opps! Pick a creature type");
+            alert("Oops! Make sure to fill out all of the sections");
             break;
             break;
         case 1:
-            creature = new Hippogriff(name, animalId);
+            creature = new Hippogriff(name);
             type = "Hippogriff";
             break;
         case 2:
-            creature = new Thestral(name, animalId);
+            creature = new Thestral(name);
             type = "Thestral";
             break;
         case 3:
-            creature = new Unicorn(name, animalId);
+            creature = new Unicorn(name);
             type = "Unicorn";
             break;
         case 4:
-            creature = new Dragon(name, animalId);
+            creature = new Dragon(name);
             type = "Dragon";
             break;
         case 5:
-            creature = new Flobberworm(name, animalId);
+            creature = new Flobberworm(name);
             type = "Flobberworm";
             break;
         case 6:
-            creature = new Centaur(name, animalId);
+            creature = new Centaur(name);
             type = "Centaur";
             break;
         case 7:
-            creature = new Acromantula(name, animalId);
+            creature = new Acromantula(name);
             type = "Acromantula";
             break;
     }
-    if (type != "") {
-        console.log(name + " the " + type + " has been added to your (illegal) zoo! Their ID is " + animalId);
-        animalId++;
+    if (type != "" && name != "") {
+        listCreatures();
+        console.log(name + " the " + type + " has been added to your (illegal) zoo!");
+        //animalId++;
 
     }
 } //Done :)
@@ -62,12 +97,14 @@ function listCreatures(){
     for (var i = 0; i < creaturePopulation; i++) {
         title[i] = allCreatures[i].name;
         species[i] = allCreatures[i].constructor.name;
-        id[i] = allCreatures[i].animalId;
+        //id[i] = allCreatures[i].animalId;
+        //animalId++;
     }
     for (var x = 0; x < creaturePopulation; x++){
-        $("#creatureNameList").append(title[x]);
-        $("#creatureSpeciesList").append(species[x]);
-        $("#creatureIdList").append(id[x]);
+        //$("#creatureNameList").append(title[x]);
+        //$("#creatureSpeciesList").append(species[x]);
+        // $("#creatureIdList").append(id[x]);
+        console.log(title[x] + " the " + species[i] + " has been added to your (illegal) zoo!");
     }
 }
 
@@ -92,7 +129,8 @@ class Creature {
         this.name = name;
         this.favoriteFood = favoriteFood;
         creaturePopulation++;
-        aId = animalId;
+        ///aId = animalId;
+        allCreatures.push(this);
         }
 
     static getPopulation() {

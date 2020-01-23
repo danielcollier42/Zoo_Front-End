@@ -7,9 +7,11 @@
     <script src = "script.js"></script>
     <link rel = "stylesheet" href = "stylesheet.css">
 </head>
-<body onload="listCreatures()">
+<body onload="run()">
 
 <h1>Welcome to Hagrid's hut!</h1>
+
+<button id="listButton" onclick="listCreatures()"> List your creatures! </button>
 
 
 <h2>Surreptitiously obtain new creatures!!</h2>
@@ -27,7 +29,7 @@
 
 <input placeholder="Creature name" type="text" id="nameInput">
 
-<button id="createButton" onclick="createCreature()"> Obtain new creatures </button>
+<button id="createButton" onclick="duplicateTester()"> Obtain new creatures </button>
 
 <div id="creatureNameList "></div>
 <div id="creatureSpeciesList "></div>
@@ -52,7 +54,7 @@
 
 <h2>Rename creatures</h2>
 
-<input placeholder="ID" type="text" id="oldName">
+<input placeholder="Name" type="text" id="oldName">
 
 <input placeholder="New name" type="text" id="newName">
 
@@ -61,7 +63,7 @@
 
 <h2>Release creatures</h2>
 
-<input placeholder="Creature's ID" type="text" id="releaseInput">
+<input placeholder="Creature's name" type="text" id="releaseInput">
 
 <button id="releaseButton" onclick="releaseCreature()">Release the creatures</button>
 
